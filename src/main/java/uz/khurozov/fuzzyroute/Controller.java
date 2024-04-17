@@ -217,7 +217,7 @@ public class Controller {
                 try {
                     RouteAlgorithm algo = RouteUtil.getRouteAlgorithm(algoName);
                     begin.set(System.nanoTime());
-                    route = algo.findRoute(getMetricsTable(!algoName.equals("Bellman-Ford")), r1, r2);
+                    route = algo.findRoute(getMetricsTable(!"Bellman-Ford".equals(algoName)), r1, r2);
                     end.set(System.nanoTime());
                 } catch (RuntimeException e) {
                     Platform.runLater(() -> new JustAlert(JustAlert.Message.RUNTIME_ERROR).showAndWait());
